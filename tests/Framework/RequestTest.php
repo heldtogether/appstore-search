@@ -15,6 +15,14 @@ class RequestTest extends TestCase {
 	}
 
 
+	function testRequestImplementsContract() {
+
+		$request = new Request();
+		$this->assertInstanceOf('App\Framework\Contracts\Request', $request);
+
+	}
+
+
 	function testRequestHasHTTPMethodProperty() {
 
 		$request = new Request();
