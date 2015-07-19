@@ -14,4 +14,13 @@ class BaseTest extends TestCase {
 	}
 
 
+	function testCanSendResponse() {
+
+		$response = new BaseResponse();
+		$output = $response->send();
+		$this->assertEquals('', $output);
+
+	}
+
+
 }
