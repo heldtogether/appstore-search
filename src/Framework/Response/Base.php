@@ -1,7 +1,9 @@
 <?php namespace App\Framework\Response;
 
+use App\Framework\Contracts\Response;
 
-class Base {
+
+class Base implements Response{
 
 
 	/**
