@@ -1,6 +1,6 @@
 <?php namespace App\Framework;
 
-use App\Framework\Response\Base as Response;
+use App\Framework\Response;
 
 
 class Application {
