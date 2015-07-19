@@ -38,6 +38,11 @@
 		</div>
 	</div>
 
+	<div class="container">
+		<nav id="pager">
+
+		</nav>
+	</div>
 
 	<div class="container">
 		<hr>
