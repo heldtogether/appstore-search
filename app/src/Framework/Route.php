@@ -109,7 +109,7 @@ class Route implements RouteContract {
 			$action = $this->config['action'];
 			$controller = $this->config['controller'];
 
-			$controller = new $controller;
+			$controller = new $controller($request);
 			return $controller->$action();
 
 		}
