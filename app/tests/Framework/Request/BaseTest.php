@@ -15,4 +15,13 @@ class BaseTest extends TestCase {
 	}
 
 
+	function testRequestHasHTTPMethodProperty() {
+
+		$request = new BaseRequest();
+		$method = $request->method;
+		$this->assertEquals('GET', $method);
+
+	}
+
+
 }
