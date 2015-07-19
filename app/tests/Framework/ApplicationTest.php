@@ -18,7 +18,16 @@ class ApplicationTest extends TestCase {
 
 		$app = new Application();
 		$response = $app->run();
-		$this->assertEquals('', $response);
+		$this->assertNotNull($response);
+
+	}
+
+
+	function testApplicationReturnsResponse () {
+
+		$app = new Application();
+		$response = $app->run();
+		$this->assertInstanceOf('App\Framework\Contracts\Response', $response);
 
 	}
 

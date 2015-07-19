@@ -1,5 +1,7 @@
 <?php namespace App\Framework;
 
+use App\Framework\Response\Base as Response;
+
 
 class Application {
 
@@ -11,7 +13,7 @@ class Application {
 	 */
 	public function run() {
 
-		//
+		return new Response();
 
 	}
 
