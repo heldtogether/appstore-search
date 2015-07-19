@@ -5,7 +5,8 @@ var _             = require("underscore"),
 	algoliasearch = require('algoliasearch');
 
 var apptemplate   = require("../../templates/app.html"),
-	facettemplate = require("../../templates/facet.html");
+	facettemplate = require("../../templates/facet.html"),
+	pagertemplate = require("../../templates/pager.html");
 
 
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
 	defaults: {
 		resultsPanelSelector: '#results',
 		facetsPanelSelector: '#facets',
+		pagerPanelSelector: '#pager',
 		algoliaAppId: '889MEAME3D',
 		algoliaAppSecret: '294131e978cd8a96fb46d929b28baf9c',
 		algoliaIndexName: 'Apps'
@@ -28,6 +30,7 @@ module.exports = {
 
 		this.$resultsPanel = $(this.options.resultsPanelSelector);
 		this.$facetsPanel = $(this.options.facetsPanelSelector);
+		this.$pagerPanel = $(this.options.pagerPanelSelector);
 
 		this.searchClient = algoliasearch(
 			this.options.algoliaAppId,
@@ -62,6 +65,10 @@ module.exports = {
 console.log(content);
 		this.redrawResultsPanel(content.hits);
 		this.redrawFacetsPanel(content.facets.category);
+		this.redrawPagerPanel({
+			nbPages: content.nbPages,
+			page: content.page
+		});
 
 	},
 
@@ -106,6 +113,16 @@ console.log(content);
 
 		this.$facetsPanel.html("");
 		html.appendTo(this.$facetsPanel);
+
+	},
+
+
+	redrawPagerPanel: function (paging) {
+
+		var html = $(pagertemplate(paging));
+
+		this.$pagerPanel.html("");
+		html.appendTo(this.$pagerPanel);
 
 	}
 
