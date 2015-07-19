@@ -19,6 +19,12 @@ class Request implements RequestContract {
 
 
 	/**
+	 * array $parameters
+	 */
+	public $parameters = [];
+
+
+	/**
 	 * array $allowed_methods
 	 */
 	protected $allowed_methods = [
@@ -53,6 +59,57 @@ class Request implements RequestContract {
 		$path = trim($path, '/');
 		$path = explode('/', $path);
 		$this->path = $path;
+
+		$this->parseParameters();
+
+	}
+
+
+	/**
+	 * Parse parameters
+	 *
+	 * @return void
+	 */
+	protected function parseParameters() {
+
+		$parameters = array();
+
+		if (isset($_SERVER['QUERY_STRING'])) {
+			parse_str($_SERVER['QUERY_STRING'], $parameters);
+		}
+
+		$body = file_get_contents("php://input");
+
+		$content_type = false;
+		if(isset($_SERVER['CONTENT_TYPE'])) {
+			$content_type = $_SERVER['CONTENT_TYPE'];
+		}
+
+		switch($content_type) {
+
+			case "application/json":
+				$body_params = json_decode($body);
+				if($body_params) {
+					foreach($body_params as $param_name => $param_value) {
+						$parameters[$param_name] = $param_value;
+					}
+				}
+				break;
+
+			case "application/x-www-form-urlencoded":
+				parse_str($body, $postvars);
+				foreach($postvars as $field => $value) {
+					$parameters[$field] = $value;
+
+				}
+				break;
+
+			default:
+				break;
+
+		}
+
+		$this->parameters = $parameters;
 
 	}
 
