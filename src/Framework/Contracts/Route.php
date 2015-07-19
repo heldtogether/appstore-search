@@ -7,4 +7,7 @@ interface Route {
 	public function matches(Request $request);
 
 
+	public function fire(Request $request);
+
+
 }

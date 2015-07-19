@@ -15,7 +15,7 @@ class Request implements RequestContract {
 	/**
 	 * array $path
 	 */
-	public $path = [];
+	public $path = NULL;
 
 
 	/**
@@ -45,12 +45,14 @@ class Request implements RequestContract {
 			$this->method = $server['REQUEST_METHOD'];
 		}
 
+		$path = '/';
 		if (isset($server['PATH_INFO'])) {
 			$path = $server['PATH_INFO'];
-			$path = trim($path, '/');
-			$path = explode('/', $path);
-			$this->path = $path;
 		}
+
+		$path = trim($path, '/');
+		$path = explode('/', $path);
+		$this->path = $path;
 
 	}
 
