@@ -9,7 +9,7 @@ class ApplicationTest extends TestCase {
 
 	function testCanCreateApplication() {
 
-		$app = new Application();
+		$app = new Application([]);
 		$this->assertNotNull($app);
 
 	}
@@ -17,7 +17,7 @@ class ApplicationTest extends TestCase {
 
 	function testApplicationImplementsContract() {
 
-		$app = new Application();
+		$app = new Application([]);
 		$this->assertInstanceOf('App\Framework\Contracts\Application', $app);
 
 	}
@@ -25,7 +25,7 @@ class ApplicationTest extends TestCase {
 
 	function testApplicationReturnsResponse () {
 
-		$app = new Application();
+		$app = new Application([]);
 		$response = $app->run();
 		$this->assertInstanceOf('App\Framework\Contracts\Response', $response);
 
