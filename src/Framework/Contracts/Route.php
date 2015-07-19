@@ -4,7 +4,7 @@
 interface Route {
 
 
-	//
+	public function matches(Request $request);
 
 
 }
