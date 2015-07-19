@@ -1,7 +1,9 @@
 <?php namespace App\Framework;
 
+use App\Framework\Contracts\Request as RequestContract;
 
-class Request {
+
+class Request implements RequestContract {
 
 
 	/**
