@@ -1,15 +1,15 @@
-<?php namespace Tests\Framework\Request;
+<?php namespace Tests\Framework;
 
-use App\Framework\Request\Base as BaseRequest;
+use App\Framework\Request;
 use Tests\TestCase;
 
 
-class BaseTest extends TestCase {
+class RequestTest extends TestCase {
 
 
 	function testCanCreateRequest() {
 
-		$request = new BaseRequest();
+		$request = new Request();
 		$this->assertNotNull($request);
 
 	}
@@ -17,7 +17,7 @@ class BaseTest extends TestCase {
 
 	function testRequestHasHTTPMethodProperty() {
 
-		$request = new BaseRequest();
+		$request = new Request();
 		$method = $request->method;
 		$this->assertEquals('GET', $method);
 
@@ -32,7 +32,7 @@ class BaseTest extends TestCase {
 			'REQUEST_METHOD' => $expected_method,
 		];
 
-		$request = new BaseRequest($server);
+		$request = new Request($server);
 		$method = $request->method;
 		$this->assertEquals($expected_method, $method);
 
@@ -47,7 +47,7 @@ class BaseTest extends TestCase {
 			'REQUEST_METHOD' => 'INVALID',
 		];
 
-		$request = new BaseRequest($server);
+		$request = new Request($server);
 		$method = $request->method;
 		$this->assertEquals($expected_method, $method);
 
@@ -66,7 +66,7 @@ class BaseTest extends TestCase {
 			'PATH_INFO' => '/some/dir/path.php',
 		];
 
-		$request = new BaseRequest($server);
+		$request = new Request($server);
 		$path = $request->path;
 		$this->assertEquals($expected_path, $path);
 
