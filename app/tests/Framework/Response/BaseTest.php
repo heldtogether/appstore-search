@@ -1,6 +1,7 @@
-<?php
+<?php namespace Tests\Framework\Response;
 
 use App\Framework\Response\Base as BaseResponse;
+use Tests\TestCase;
 
 
 class BaseTest extends TestCase {
