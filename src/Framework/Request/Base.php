@@ -11,6 +11,12 @@ class Base {
 
 
 	/**
+	 * array $path
+	 */
+	public $path = [];
+
+
+	/**
 	 * array $allowed_methods
 	 */
 	protected $allowed_methods = [
@@ -35,6 +41,13 @@ class Base {
 			in_array($server['REQUEST_METHOD'], $this->allowed_methods)
 		) {
 			$this->method = $server['REQUEST_METHOD'];
+		}
+
+		if (isset($server['PATH_INFO'])) {
+			$path = $server['PATH_INFO'];
+			$path = trim($path, '/');
+			$path = explode('/', $path);
+			$this->path = $path;
 		}
 
 	}
