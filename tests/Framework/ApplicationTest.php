@@ -15,11 +15,10 @@ class ApplicationTest extends TestCase {
 	}
 
 
-	function testCanRunApplication() {
+	function testApplicationImplementsContract() {
 
 		$app = new Application();
-		$response = $app->run();
-		$this->assertNotNull($response);
+		$this->assertInstanceOf('App\Framework\Contracts\Application', $app);
 
 	}
 
