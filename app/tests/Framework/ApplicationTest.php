@@ -14,4 +14,13 @@ class ApplicationTest extends TestCase {
 	}
 
 
+	function testCanRunApplication() {
+
+		$app = new Application();
+		$response = $app->run();
+		$this->assertEquals('', $response);
+
+	}
+
+
 }
