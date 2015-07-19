@@ -1,6 +1,7 @@
-<?php
+<?php namespace Tests\Framework;
 
 use App\Framework\Application;
+use Tests\TestCase;
 
 
 class ApplicationTest extends TestCase {
