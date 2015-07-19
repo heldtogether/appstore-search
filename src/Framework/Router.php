@@ -34,7 +34,20 @@ class Router implements RouterContract {
 	 */
 	public function dispatch(RequestContract $request) {
 
-		//
+		$response = NULL;
+
+		foreach ($this->routes as $route) {
+
+			if ($route->matches($request)) {
+
+				$response = $route->fire($request);
+				break;
+
+			}
+
+		}
+
+		return $response;
 
 	}
 
