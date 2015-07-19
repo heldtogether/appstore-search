@@ -15,4 +15,12 @@ class RouterTest extends TestCase {
 	}
 
 
+	function testRouterImplementsContract() {
+
+		$router = new Router();
+		$this->assertInstanceOf('App\Framework\Contracts\Router', $router);
+
+	}
+
+
 }
