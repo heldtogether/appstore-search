@@ -9,7 +9,7 @@ class RouteTest extends TestCase {
 
 	function testCanCreateRoute() {
 
-		$route = new Route([]);
+		$route = new Route('GET', '/', []);
 		$this->assertNotNull($route);
 
 	}
@@ -17,7 +17,7 @@ class RouteTest extends TestCase {
 
 	function testRouterImplementsContract() {
 
-		$route = new Route([]);
+		$route = new Route('GET', '/', []);
 		$this->assertInstanceOf('App\Framework\Contracts\Route', $route);
 
 	}
