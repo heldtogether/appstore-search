@@ -14,6 +14,14 @@ class BaseTest extends TestCase {
 	}
 
 
+	function testResponseImplementsContract() {
+
+		$response = new BaseResponse();
+		$this->assertInstanceOf('App\Framework\Contracts\Response', $response);
+
+	}
+
+
 	function testCanSendResponse() {
 
 		$response = new BaseResponse();
