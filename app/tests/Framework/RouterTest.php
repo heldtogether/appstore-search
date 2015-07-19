@@ -9,7 +9,7 @@ class RouterTest extends TestCase {
 
 	function testCanCreateRouter() {
 
-		$router = new Router();
+		$router = new Router([]);
 		$this->assertNotNull($router);
 
 	}
@@ -17,7 +17,7 @@ class RouterTest extends TestCase {
 
 	function testRouterImplementsContract() {
 
-		$router = new Router();
+		$router = new Router([]);
 		$this->assertInstanceOf('App\Framework\Contracts\Router', $router);
 
 	}
