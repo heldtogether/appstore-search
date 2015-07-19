@@ -1,15 +1,15 @@
-<?php namespace Tests\Framework\Response;
+<?php namespace Tests\Framework;
 
-use App\Framework\Response\Base as BaseResponse;
+use App\Framework\Response;
 use Tests\TestCase;
 
 
-class BaseTest extends TestCase {
+class ResponseTest extends TestCase {
 
 
 	function testCanCreateResponse() {
 
-		$response = new BaseResponse();
+		$response = new Response();
 		$this->assertNotNull($response);
 
 	}
@@ -17,7 +17,7 @@ class BaseTest extends TestCase {
 
 	function testResponseImplementsContract() {
 
-		$response = new BaseResponse();
+		$response = new Response();
 		$this->assertInstanceOf('App\Framework\Contracts\Response', $response);
 
 	}
@@ -25,7 +25,7 @@ class BaseTest extends TestCase {
 
 	function testCanSendResponse() {
 
-		$response = new BaseResponse();
+		$response = new Response();
 		$output = $response->send();
 		$this->assertEquals('', $output);
 

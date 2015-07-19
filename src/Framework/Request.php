@@ -1,7 +1,7 @@
-<?php namespace App\Framework\Request;
+<?php namespace App\Framework;
 
 
-class Base {
+class Request {
 
 
 	/**
