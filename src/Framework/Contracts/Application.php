@@ -1,10 +1,10 @@
 <?php namespace App\Framework\Contracts;
 
 
-interface Response {
+interface Application {
 
 
-	public function send();
+	public function run();
 
 
 }
