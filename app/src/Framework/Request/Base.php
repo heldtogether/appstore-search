@@ -11,6 +11,17 @@ class Base {
 
 
 	/**
+	 * array $allowed_methods
+	 */
+	protected $allowed_methods = [
+		'DELETE',
+		'GET',
+		'POST',
+		'PUT',
+	];
+
+
+	/**
 	 * Construct
 	 */
 	public function __construct($server = NULL) {
@@ -19,7 +30,10 @@ class Base {
 			$server = $_SERVER;
 		}
 
-		if (isset($server['REQUEST_METHOD'])) {
+		if (
+			isset($server['REQUEST_METHOD']) &&
+			in_array($server['REQUEST_METHOD'], $this->allowed_methods)
+		) {
 			$this->method = $server['REQUEST_METHOD'];
 		}
 
