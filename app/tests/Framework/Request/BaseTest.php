@@ -39,4 +39,19 @@ class BaseTest extends TestCase {
 	}
 
 
+	function testRequestDoesntParseInvalidHTTPMethod() {
+
+		$expected_method = 'GET';
+
+		$server = [
+			'REQUEST_METHOD' => 'INVALID',
+		];
+
+		$request = new BaseRequest($server);
+		$method = $request->method;
+		$this->assertEquals($expected_method, $method);
+
+	}
+
+
 }
