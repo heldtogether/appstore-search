@@ -54,4 +54,23 @@ class BaseTest extends TestCase {
 	}
 
 
+	function testRequestParsesPathInfo() {
+
+		$expected_path = [
+			'some',
+			'dir',
+			'path.php',
+		];
+
+		$server = [
+			'PATH_INFO' => '/some/dir/path.php',
+		];
+
+		$request = new BaseRequest($server);
+		$path = $request->path;
+		$this->assertEquals($expected_path, $path);
+
+	}
+
+
 }
