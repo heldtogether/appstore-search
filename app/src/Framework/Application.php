@@ -1,9 +1,10 @@
 <?php namespace App\Framework;
 
+use App\Framework\Contracts\Application as ApplicationContract;
 use App\Framework\Response;
 
 
-class Application {
+class Application implements ApplicationContract {
 
 
 	/**
