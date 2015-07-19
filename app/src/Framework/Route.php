@@ -16,7 +16,7 @@ class Route implements RouteContract {
 	/**
 	 * array $path
 	 */
-	protected $path = [];
+	protected $path = NULL;
 
 
 	/**
@@ -34,7 +34,6 @@ class Route implements RouteContract {
 
 		$this->method = $method;
 
-		$path = $path;
 		$path = trim($path, '/');
 		$path = explode('/', $path);
 		$this->path = $path;
@@ -89,6 +88,31 @@ class Route implements RouteContract {
 		// Can't find any reason not to match the route with the
 		// request.
 		return true;
+
+	}
+
+
+	/**
+	 * Fire the route, calling the controller method specified
+	 * in the config.
+	 *
+	 * @param App\Framework\Contracts\Request $request
+	 * @return void
+	 */
+	public function fire(RequestContract $request) {
+
+		if (
+			isset($this->config['controller']) &&
+			isset($this->config['action'])
+		) {
+
+			$action = $this->config['action'];
+			$controller = $this->config['controller'];
+
+			$controller = new $controller;
+			return $controller->$action();
+
+		}
 
 	}
 
