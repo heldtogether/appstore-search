@@ -4,7 +4,16 @@
 class Application {
 
 
-	//
+	/**
+	 * Run the Application
+	 *
+	 * @return void
+	 */
+	public function run() {
+
+		//
+
+	}
 
 
 }
