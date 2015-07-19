@@ -4,7 +4,7 @@
 interface Router {
 
 
-	public function dispatch();
+	public function dispatch(Request $request);
 
 
 }
