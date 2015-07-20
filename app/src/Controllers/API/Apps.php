@@ -2,6 +2,7 @@
 
 use AlgoliaSearch\Client as SearchClient;
 use App\Framework\Contracts\Request;
+use App\Framework\Response;
 
 
 class Apps {
@@ -61,22 +62,52 @@ class Apps {
 			'rank',
 		];
 
+		$errors = [];
+
 		foreach ($required_parameters as $parameter) {
 
 			if (!isset($this->request->parameters[$parameter])) {
-				// ERROR
+				$errors[$parameter] = 'The ' . $parameter . ' is required';
 			}
 
 		}
 
-		$result = $this->index->saveObject([
+		if (!empty($errors)) {
+			return new Response(
+				422,
+				json_encode(['errors' => $errors]),
+				'json'
+			);
+		}
+
+		$object = [
 			'objectID' => $this->request->parameters['objectID'],
 			'name'     => $this->request->parameters['name'],
 			'image'    => $this->request->parameters['image'],
 			'link'     => $this->request->parameters['link'],
 			'category' => $this->request->parameters['category'],
 			'rank'     => $this->request->parameters['rank'],
-		]);
+		];
+
+		$result = $this->index->saveObject($object);
+
+		if ($result) {
+
+			return new Response(
+				201,
+				json_encode(['app' => $object]),
+				'json'
+			);
+
+		} else {
+
+			return new Response(
+				500,
+				json_encode(['error' => 'Unable to create new app.']),
+				'json'
+			);
+
+		}
 
 	}
 
@@ -90,6 +121,12 @@ class Apps {
 	public function delete($id) {
 
 		$this->index->deleteObject($id);
+
+		return new Response(
+			204,
+			NULL,
+			'json'
+		);
 
 	}
 
