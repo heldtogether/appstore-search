@@ -11,7 +11,7 @@
 	<div class="jumbotron">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-md-6 col-md-offset-3">
+				<div class="col-xs-12 col-sm-6 col-sm-offset-3">
 					<form>
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon">
@@ -27,12 +27,12 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-3">
+			<div class="col-xs-12 col-sm-3">
 				<ul id="facets" class="list-group">
 
 				</ul>
 			</div>
-			<div id="results" class="col-xs-12 col-md-9">
+			<div id="results" class="col-xs-12 col-sm-9">
 
 			</div>
 		</div>

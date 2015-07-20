@@ -282,9 +282,9 @@ $(document).ready(function () {
 module.exports = function(obj){
 var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
 with(obj||{}){
-__p+='<div class="panel panel-default">\n\t<div class="panel-body">\n\t\t<div class="row">\n\t\t\t<div class="col-xs-12 col-md-3">\n\t\t\t\t<img width="50" height="50" src="'+
+__p+='<div class="panel panel-default">\n\t<div class="panel-body">\n\t\t<div class="row">\n\t\t\t<div class="col-xs-3">\n\t\t\t\t<img width="50" height="50" src="'+
 ((__t=( image ))==null?'':__t)+
-'" />\n\t\t\t</div>\n\t\t\t<div class="col-xs-12 col-md-9">\n\t\t\t\t<a href="'+
+'" />\n\t\t\t</div>\n\t\t\t<div class="col-xs-9">\n\t\t\t\t<a href="'+
 ((__t=( link ))==null?'':__t)+
 '">'+
 ((__t=( name ))==null?'':__t)+
