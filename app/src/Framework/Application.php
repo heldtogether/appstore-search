@@ -3,6 +3,7 @@
 use App\Framework\Contracts\Application as ApplicationContract;
 use App\Framework\Response;
 use App\Framework\Router;
+use Dotenv\Dotenv;
 
 
 class Application implements ApplicationContract {
@@ -33,6 +34,14 @@ class Application implements ApplicationContract {
 	 * @return App\Framework\Contracts\Response
 	 */
 	public function run() {
+
+		try {
+			$dotenv = new Dotenv(__DIR__ . '/../../');
+			$dotenv->load();
+		} catch (\InvalidArgumentException $e) {
+			// Fall through, assume that environment variables
+			// are being set some other way...
+		}
 
 		$router = new Router($this->routes);
 

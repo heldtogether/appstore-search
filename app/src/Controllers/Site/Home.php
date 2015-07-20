@@ -34,7 +34,9 @@ class Home {
 	 */
 	public function index() {
 
-		$view = new View('index');
+		$view = new View('index', [
+			'algolia_search_key' => getenv('ALGOLIA_SEARCH_API_KEY'),
+		]);
 		return new Response(200, $view->render());
 
 	}

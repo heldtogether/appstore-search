@@ -30,7 +30,7 @@ module.exports = {
 		facetInputSelector: '#facets a',
 		pagerInputSelector: '#pager a',
 		algoliaAppId: '889MEAME3D',
-		algoliaAppSecret: '294131e978cd8a96fb46d929b28baf9c',
+		algoliaAppSecret: window._ALGOLIA_SEARCH_API_KEY,
 		algoliaIndexName: 'Apps'
 	},
 

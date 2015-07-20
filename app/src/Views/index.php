@@ -51,4 +51,10 @@
 		</footer>
 	</div>
 
+	<script type="application/javascript">
+		window._ALGOLIA_SEARCH_API_KEY = '<?php
+			echo $view_data['algolia_search_key'];
+		?>';
+	</script>
+
 <?php include "includes/footer.php" ?>

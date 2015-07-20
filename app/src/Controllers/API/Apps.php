@@ -37,10 +37,10 @@ class Apps {
 		$this->request = $request;
 
 		$this->client = new SearchClient(
-			'889MEAME3D',
-			'009f9f04d0a477f8006925c4f37b7647'
+			getenv('ALGOLIA_APP_ID'),
+			getenv('ALGOLIA_ADMIN_API_KEY')
 		);
-
+		
 		$this->index = $this->client->initIndex('Apps');
 
 	}
