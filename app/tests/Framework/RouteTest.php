@@ -69,4 +69,19 @@ class RouteTest extends TestCase {
 	}
 
 
+	function testRouteFetchesDynamicURLSegments() {
+
+		$request = new Request([
+			'REQUEST_METHOD' => 'POST',
+			'PATH_INFO' => '/static/1/static',
+		]);
+
+		$route = new Route('POST', '/static/:id/static/', []);
+		$route->matches($request);
+
+		$this->assertEquals($route->url_parameters, [1]);
+
+	}
+
+
 }
