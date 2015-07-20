@@ -23,6 +23,9 @@ class ResponseTest extends TestCase {
 	}
 
 
+	/**
+	 * @runInSeparateProcess
+	 */
 	function testCanSendResponse() {
 
 		$response = new Response();
