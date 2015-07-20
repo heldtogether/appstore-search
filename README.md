@@ -40,8 +40,3 @@ To deploy to Heroku use
     git subtree push --prefix app heroku master
 
 to just deploy the `app` directory.
-
-
-## Todo
-
-- Proper responses with error messages and status codes
