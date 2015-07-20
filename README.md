@@ -17,5 +17,4 @@ to just deploy the `app` directory.
 
 ## Todo
 
-- Handle page and facet parameters in Javascript
 - Proper responses with error messages and status codes
