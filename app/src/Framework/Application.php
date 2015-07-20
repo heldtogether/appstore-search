@@ -40,7 +40,7 @@ class Application implements ApplicationContract {
 		$response = $router->dispatch($request);
 
 		if (!$response) {
-			$response = new Response();
+			$response = new Response(404, 'Page not found.');
 		}
 
 		return $response;
