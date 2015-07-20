@@ -6,6 +6,15 @@
 See [the app here](https://appstore-search.herokuapp.com/).
 
 
+## Deploy
+
+To deploy to Heroku use
+
+    git subtree push --prefix app heroku master
+
+to just deploy the `app` directory.
+
+
 ## Todo
 
 - Handle page and facet parameters in Javascript
