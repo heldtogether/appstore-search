@@ -8,5 +8,5 @@ See [the app here](https://appstore-search.herokuapp.com/).
 
 ## Todo
 
-- Handle dynamic URL segments
 - Handle page and facet parameters in Javascript
+- Proper responses with error messages and status codes
