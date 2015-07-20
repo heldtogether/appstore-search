@@ -37,9 +37,13 @@ class Application implements ApplicationContract {
 		$router = new Router($this->routes);
 
 		$request = new Request();
-		$reponse = $router->dispatch($request);
+		$response = $router->dispatch($request);
 
-		return new Response();
+		if (!$response) {
+			$response = new Response();
+		}
+
+		return $response;
 
 	}
 
