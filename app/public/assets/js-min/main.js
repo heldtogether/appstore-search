@@ -190,7 +190,7 @@ module.exports = {
 
 
 	handleResponse: function (err, content) {
-console.log(content);
+
 		this.redrawResultsPanel(content.hits);
 		this.redrawFacetsPanel(content.facets.category);
 		this.redrawPagerPanel({
