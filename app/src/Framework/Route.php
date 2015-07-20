@@ -26,6 +26,12 @@ class Route implements RouteContract {
 
 
 	/**
+	 * array $url_parameters
+	 */
+	public $url_parameters = [];
+
+
+	/**
 	 * Construct
 	 *
 	 * @return void
@@ -74,6 +80,7 @@ class Route implements RouteContract {
 			// If this path segment is a variable (starts with
 			// ':') then just assume that they match and continue.
 			if (substr($this_path, 0, 1) === ':') {
+				$this->url_parameters[] = $request_path;
 				continue;
 			}
 
@@ -110,7 +117,11 @@ class Route implements RouteContract {
 			$controller = $this->config['controller'];
 
 			$controller = new $controller($request);
-			return $controller->$action();
+
+			return call_user_func_array(
+				[$controller, $action],
+				$this->url_parameters
+			);
 
 		}
 
