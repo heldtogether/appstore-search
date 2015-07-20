@@ -136,6 +136,7 @@ module.exports = {
 
 		if ('query' in urlParams) {
 			this.query = urlParams.query;
+			$(this.options.searchInputSelector).val(this.query);
 		}
 
 		if ('page' in urlParams) {
