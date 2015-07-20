@@ -47,6 +47,8 @@ class Apps {
 
 	/**
 	 * Store a new App in the search index
+	 *
+	 * @return void
 	 */
 	public function store() {
 
@@ -79,9 +81,14 @@ class Apps {
 	}
 
 
-	public function delete() {
+	/**
+	 * Delete an App from the search index
+	 *
+	 * @param int $id
+	 * @return void
+	 */
+	public function delete($id) {
 
-		$id = $this->request->parameters['id'];
 		$this->index->deleteObject($id);
 
 	}
